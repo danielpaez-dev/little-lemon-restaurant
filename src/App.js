@@ -1,11 +1,16 @@
-import logo from './logo.svg';
+import React from 'react';
+import Header from './Header';
+import Main from './Main';
+import Footer from './Footer';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <h1>HomePage</h1>
-    </div>
+    <>
+      <Header />
+      <Main />
+      <Footer/>
+    </>
   );
 }
 
