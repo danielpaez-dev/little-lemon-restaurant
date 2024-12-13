@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import { Link } from "react-router-dom";
-import Logo from "./assets/images/Logo.svg";
+import Logo from "../assets/images/Logo.svg";
 import Image from 'react-bootstrap/Image';
 
 const navLinks = [
