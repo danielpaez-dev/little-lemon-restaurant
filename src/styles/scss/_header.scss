@@ -1,0 +1,46 @@
+header {
+  width: 100%;
+  .navbar {
+    padding: 0;
+    .navbar-brand {
+      margin: 0;
+      padding: 0;
+      img{
+        width: auto;
+        height: 4rem;
+      }
+    }
+    .navbar-toggler {
+      border: 0;
+      .navbar-toggler-icon {
+        color: $green;
+        font-size: xx-large;
+      }
+    }
+    #basic-navbar-nav {
+      .navbar-nav {
+        margin: 0;
+        margin-left: auto;
+        padding: 0;
+        list-style-type: none;
+        text-transform: uppercase;
+        display: flex;
+        align-items: center;
+        height: 100%;
+        a {
+          padding: 1rem;
+          width: 100%;
+          height: 100%;
+          text-align: center;
+          text-decoration: none;
+          @extend .card-title;
+          color: $green;
+
+          &:hover {
+            background-color: $yellow;
+          }
+        }
+      }
+    }
+  }
+}

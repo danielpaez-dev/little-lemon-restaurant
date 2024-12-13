@@ -1,12 +1,10 @@
 import React from "react";
-import Nav from "./Nav";
-import Logo from "./assets/images/Logo.svg";
+import HeaderNav from "./Nav";
 
 function Header() {
   return (
     <header>
-      <img src={Logo} alt="Logo of Little Lemon Restaurant"/>
-      <Nav />
+      <HeaderNav />
     </header>
   );
 }

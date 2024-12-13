@@ -1,0 +1,73 @@
+// FONTS
+/*
+Regular: 400
+Medium: 500
+Bold: 700
+ExtraBold: 800
+*/
+
+$font-family-karla: "Karla", sans-serif;
+$font-family-markazi: "Markazi Text", serif;
+$base-font-size: 16px;
+
+.display-text {
+  font-family: $font-family-markazi;
+  font-weight: 500;
+  font-size: 4rem; // 64px
+}
+
+.subtitle-text {
+  font-family: $font-family-markazi;
+  font-weight: 400;
+  font-size: 2.5rem; // 40px
+}
+
+.lead-text {
+  font-family: $font-family-karla;
+  font-weight: 500;
+  font-size: 1.125rem; // 18px
+}
+
+.section-title {
+  font-family: $font-family-karla;
+  font-weight: 800;
+  font-size: 1.25rem; // 20px
+  text-transform: uppercase;
+}
+
+.section-categorie {
+  font-family: $font-family-karla;
+  font-weight: 800;
+  font-size: 1rem; // 16px
+}
+
+.highlight-text{
+    font-family: $font-family-karla;
+    font-weight: 400;
+    font-size: 1rem; // 16px
+}
+
+.paragraph-text{
+    font-family: $font-family-karla;
+    font-weight: 400;
+    font-size: 1rem; // 16px
+    line-height: 15px;
+}
+
+.card-title{
+    font-family: $font-family-karla;
+    font-weight: 700;
+    font-size: 1.125rem; // 18px
+}
+
+// COLORS
+$green: #495E57;
+$yellow: #F4CE14;
+$gray: #EDEFEE;
+$black: 333333;
+$pale-peach: #FBDABB;
+$peach: #EE9972;
+$white: #FFFFFF;
+
+// ROUNDED-CORNERS
+$border-radius: 1rem;

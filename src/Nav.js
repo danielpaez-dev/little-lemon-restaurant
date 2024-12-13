@@ -1,30 +1,48 @@
 import React from "react";
+import Navbar from "react-bootstrap/Navbar";
+import Nav from "react-bootstrap/Nav";
+import { Link } from "react-router-dom";
+import Logo from "./assets/images/Logo.svg";
+import Image from 'react-bootstrap/Image';
 
-function Nav() {
+const navLinks = [
+  { path: "/home", label: "HOME" },
+  { path: "/about", label: "ABOUT" },
+  { path: "/menu", label: "MENU" },
+  { path: "/reservations", label: "RESERVATIONS" },
+  { path: "/order", label: "ORDER" },
+  { path: "/login", label: "LOGIN" }
+];
+
+function HeaderNav() {
   return (
-    <nav>
-      <ul>
-        <li>
-          <a href="/home">HOME</a>
-        </li>
-        <li>
-          <a href="/about">ABOUT</a>
-        </li>
-        <li>
-          <a href="/menu">MENU</a>
-        </li>
-        <li>
-          <a href="/reservations">RESERVATIONS</a>
-        </li>
-        <li>
-          <a href="/order">ORDER ONLINE</a>
-        </li>
-        <li>
-          <a href="/login">LOGIN</a>
-        </li>
-      </ul>
-    </nav>
+    <Navbar collapseOnSelect expand="lg" sticky="top">
+      <Navbar.Brand as={Link} to="/home">
+        <Image
+          src={Logo}
+          alt="Logo of Little Lemon Restaurant"
+          title="Go Home"
+        />
+      </Navbar.Brand>
+      <Navbar.Toggle
+        aria-controls="basic-navbar-nav"
+        aria-label="Toggle navigation"
+      />
+      <Navbar.Collapse id="basic-navbar-nav">
+        <Nav>
+          {navLinks.map(link =>
+            <Nav.Link
+              key={link.path}
+              as={Link}
+              to={link.path}
+            >
+              {link.label}
+            </Nav.Link>
+          )}
+        </Nav>
+      </Navbar.Collapse>
+    </Navbar>
   );
 }
 
-export default Nav;
+export default HeaderNav;

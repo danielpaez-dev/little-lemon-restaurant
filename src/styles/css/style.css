@@ -1,0 +1,134 @@
+/*
+Regular: 400
+Medium: 500
+Bold: 700
+ExtraBold: 800
+*/
+.display-text {
+  font-family: "Markazi Text", serif;
+  font-weight: 500;
+  font-size: 4rem;
+}
+
+.subtitle-text {
+  font-family: "Markazi Text", serif;
+  font-weight: 400;
+  font-size: 2.5rem;
+}
+
+.lead-text {
+  font-family: "Karla", sans-serif;
+  font-weight: 500;
+  font-size: 1.125rem;
+}
+
+.section-title {
+  font-family: "Karla", sans-serif;
+  font-weight: 800;
+  font-size: 1.25rem;
+  text-transform: uppercase;
+}
+
+.section-categorie {
+  font-family: "Karla", sans-serif;
+  font-weight: 800;
+  font-size: 1rem;
+}
+
+.highlight-text {
+  font-family: "Karla", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+.paragraph-text {
+  font-family: "Karla", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 15px;
+}
+
+.card-title, header .navbar #basic-navbar-nav .navbar-nav a {
+  font-family: "Karla", sans-serif;
+  font-weight: 700;
+  font-size: 1.125rem;
+}
+
+#root {
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-template-rows: auto;
+}
+@media (max-width: 1200px) {
+  #root {
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+  }
+}
+@media (max-width: 767px) {
+  #root {
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+  }
+}
+#root header,
+#root main,
+#root footer {
+  grid-column: 3/11;
+}
+@media (max-width: 1200px) {
+  #root header,
+  #root main,
+  #root footer {
+    grid-column: 2/8;
+  }
+}
+@media (max-width: 767px) {
+  #root header,
+  #root main,
+  #root footer {
+    grid-column: 1/-1;
+  }
+}
+
+header {
+  width: 100%;
+}
+header .navbar {
+  padding: 0;
+}
+header .navbar .navbar-brand {
+  margin: 0;
+  padding: 0;
+}
+header .navbar .navbar-brand img {
+  width: auto;
+  height: 4rem;
+}
+header .navbar .navbar-toggler {
+  border: 0;
+}
+header .navbar .navbar-toggler .navbar-toggler-icon {
+  color: #495E57;
+  font-size: xx-large;
+}
+header .navbar #basic-navbar-nav .navbar-nav {
+  margin: 0;
+  margin-left: auto;
+  padding: 0;
+  list-style-type: none;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+header .navbar #basic-navbar-nav .navbar-nav a {
+  padding: 1rem;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  text-decoration: none;
+  color: #495E57;
+}
+header .navbar #basic-navbar-nav .navbar-nav a:hover {
+  background-color: #F4CE14;
+}
