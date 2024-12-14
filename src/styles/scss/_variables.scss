@@ -1,3 +1,15 @@
+// COLORS
+$green: #495E57;
+$yellow: #F4CE14;
+$gray: #EDEFEE;
+$black: 333333;
+$pale-peach: #FBDABB;
+$peach: #EE9972;
+$white: #FFFFFF;
+
+// ROUNDED-CORNERS
+$border-radius: 1rem;
+
 // FONTS
 /*
 Regular: 400
@@ -14,18 +26,21 @@ $base-font-size: 16px;
   font-family: $font-family-markazi;
   font-weight: 500;
   font-size: 4rem; // 64px
+  color: $yellow;
 }
 
 .subtitle-text {
   font-family: $font-family-markazi;
   font-weight: 400;
   font-size: 2.5rem; // 40px
+  color: $white
 }
 
 .lead-text {
   font-family: $font-family-karla;
   font-weight: 500;
   font-size: 1.125rem; // 18px
+  color: $green;
 }
 
 .section-title {
@@ -33,18 +48,21 @@ $base-font-size: 16px;
   font-weight: 800;
   font-size: 1.25rem; // 20px
   text-transform: uppercase;
+  color: $green;
 }
 
 .section-categorie {
   font-family: $font-family-karla;
   font-weight: 800;
   font-size: 1rem; // 16px
+  color: $green;
 }
 
 .highlight-text{
     font-family: $font-family-karla;
     font-weight: 400;
     font-size: 1rem; // 16px
+    color: $green;
 }
 
 .paragraph-text{
@@ -52,22 +70,13 @@ $base-font-size: 16px;
     font-weight: 400;
     font-size: 1rem; // 16px
     line-height: 15px;
+    color: $green;
 }
 
 .card-title{
     font-family: $font-family-karla;
     font-weight: 700;
     font-size: 1.125rem; // 18px
+    text-transform: uppercase;
+    color: $green;
 }
-
-// COLORS
-$green: #495E57;
-$yellow: #F4CE14;
-$gray: #EDEFEE;
-$black: 333333;
-$pale-peach: #FBDABB;
-$peach: #EE9972;
-$white: #FFFFFF;
-
-// ROUNDED-CORNERS
-$border-radius: 1rem;

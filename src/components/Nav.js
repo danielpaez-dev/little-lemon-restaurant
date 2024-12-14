@@ -6,7 +6,7 @@ import Logo from "../assets/images/Logo.svg";
 import Image from 'react-bootstrap/Image';
 
 const navLinks = [
-  { path: "/home", label: "HOME" },
+  { path: "/", label: "HOME" },
   { path: "/about", label: "ABOUT" },
   { path: "/menu", label: "MENU" },
   { path: "/reservations", label: "RESERVATIONS" },
@@ -35,6 +35,7 @@ function HeaderNav() {
               key={link.path}
               as={Link}
               to={link.path}
+              title={`Go to ${link.path}`}
             >
               {link.label}
             </Nav.Link>

@@ -3,8 +3,10 @@ import HeaderNav from "./Nav";
 
 function Header() {
   return (
-    <header>
-      <HeaderNav />
+    <header className="background-container">
+      <div className="container">
+        <HeaderNav />
+      </div>
     </header>
   );
 }

@@ -1,0 +1,93 @@
+footer {
+  background-color: $green;
+  color: $white;
+  padding: 2rem 1rem;
+
+  .container {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    gap: 2rem;
+
+    @media (max-width: 1024px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 767px) {
+      grid-template-columns: 1fr;
+    }
+
+    img {
+      border-radius: 0 !important;
+      width: 100%;
+      min-width: 150px;
+      max-width: 250px !important;
+      height: auto;
+      object-fit: contain;
+    }
+
+    h3 {
+      @extend .card-title;
+      color: $white;
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+
+    .nav-link {
+      color: $white;
+      text-decoration: none;
+
+      &:hover {
+        color: $yellow;
+      }
+    }
+
+    div{
+      width: 100%;
+    }
+
+    #contact-us {
+      ul {
+        font-style: italic;
+        padding: 0;
+        list-style: none;
+
+        li {
+          margin-bottom: 0.5rem;
+        }
+      }
+    }
+
+    #sitemap {
+      .navbar-nav {
+        display: flex;
+        flex-direction: column;
+
+        li {
+          margin-bottom: 0.5rem;
+        }
+      }
+    }
+
+    #connect-with-us {
+      ul {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        justify-content: flex-start;
+
+        @media (max-width: 767px) {
+          justify-content: center;
+        }
+      }
+
+      a {
+        color: $white;
+        font-size: 1.2rem;
+
+        &:hover {
+          color: $yellow;
+        }
+      }
+    }
+  }
+}
