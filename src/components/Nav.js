@@ -17,7 +17,7 @@ const navLinks = [
 function HeaderNav() {
   return (
     <Navbar collapseOnSelect expand="lg" sticky="top">
-      <Navbar.Brand as={Link} to="/home">
+      <Navbar.Brand as={Link} to="/">
         <Image
           src={Logo}
           alt="Logo of Little Lemon Restaurant"

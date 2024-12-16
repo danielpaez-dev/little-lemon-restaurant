@@ -1,19 +1,16 @@
 import React from "react";
+import Hero from "../components/Home/Hero";
+import Specials from "../components/Home/Specials";
+import Testimonials from "../components/Home/Testimonials";
+import About from "../components/Home/About";
 
 function Home() {
   return (
     <main>
-      <article className="background-container">
-        <div className="container">
-          <h1>Welcome to the Home Page</h1>
-        </div>
-      </article>
-
-      <article className="background-container">
-        <div className="container">
-          <h1>Welcome to the Home Page</h1>
-        </div>
-      </article>
+      <Hero />
+      <Specials />
+      <Testimonials />
+      <About />
     </main>
   );
 }

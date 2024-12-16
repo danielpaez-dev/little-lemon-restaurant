@@ -4,12 +4,12 @@ Medium: 500
 Bold: 700
 ExtraBold: 800
 */
-.display-text, #root h1,
-#root h2 {
+.display-text, #root h1 {
   font-family: "Markazi Text", serif;
   font-weight: 500;
   font-size: 4rem;
   color: #F4CE14;
+  line-height: 0.5;
 }
 
 .subtitle-text {
@@ -19,18 +19,17 @@ ExtraBold: 800
   color: #FFFFFF;
 }
 
-.lead-text {
+.lead-text, main #testimonials .container #testimonials-grid .card-body .card-title, main #testimonials .container #testimonials-grid .card-body header .navbar #basic-navbar-nav .navbar-nav a, header .navbar #basic-navbar-nav .navbar-nav main #testimonials .container #testimonials-grid .card-body a, main #testimonials footer .container #testimonials-grid .card-body h3, footer main #testimonials .container #testimonials-grid .card-body h3, main #specials #special-cards .card .card-body .title-price .price, main #specials #special-cards .card .card-body .title-price .title-card-specials, #root .custom-button {
   font-family: "Karla", sans-serif;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 1.125rem;
   color: #495E57;
 }
 
 .section-title {
-  font-family: "Karla", sans-serif;
-  font-weight: 800;
-  font-size: 1.25rem;
-  text-transform: uppercase;
+  font-family: "Markazi Text", serif;
+  font-weight: 500;
+  font-size: 2.5rem;
   color: #495E57;
 }
 
@@ -48,7 +47,7 @@ ExtraBold: 800
   color: #495E57;
 }
 
-.paragraph-text {
+.paragraph-text, #root p {
   font-family: "Karla", sans-serif;
   font-weight: 400;
   font-size: 1rem;
@@ -79,10 +78,10 @@ ExtraBold: 800
     grid-template-columns: repeat(8, minmax(0, 1fr));
   }
 }
-#root .background-container:not(:first-child):not(:last-child):nth-child(odd) {
+#root .background-container:nth-child(odd) {
   background-color: #495E57;
 }
-#root .background-container:not(:first-child):not(:last-child):nth-child(even) {
+#root .background-container:nth-child(even) {
   background-color: #FFFFFF;
 }
 #root .background-container .container {
@@ -98,12 +97,15 @@ ExtraBold: 800
     grid-column: 1/-1;
   }
 }
-#root article:has(.container), #root footer:has(.container) {
-  padding: 3rem;
+#root article:has(.container),
+#root footer:has(.container) {
+  padding: 3rem 0;
 }
 #root img {
   max-width: 100%;
   height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
   border-radius: 1rem;
 }
 #root ul {
@@ -119,9 +121,27 @@ ExtraBold: 800
 #root .navbar {
   padding: 0;
 }
+#root .custom-button {
+  padding: 0.5rem 1rem !important;
+  border-radius: 3rem !important;
+  border: 1px solid transparent !important;
+  background-color: #F4CE14 !important;
+  text-align: center;
+}
+#root .custom-button:hover {
+  border: 1px solid #F4CE14 !important;
+  background-color: #495E57 !important;
+  color: #FFFFFF !important;
+}
+#root .card {
+  border-radius: 1rem;
+}
+#root .section-header, #root main #testimonials .container .section-header h2, main #testimonials .container .section-header #root h2 {
+  margin-bottom: 2rem;
+}
 
 header {
-  background-color: #FFFFFF;
+  background-color: #FFFFFF !important;
 }
 header .navbar {
   padding: 0;
@@ -163,7 +183,7 @@ header .navbar #basic-navbar-nav .navbar-nav a:hover {
 }
 
 footer {
-  background-color: #495E57;
+  background-color: #495E57 !important;
   color: #FFFFFF;
   padding: 2rem 1rem;
 }
@@ -238,4 +258,157 @@ footer .container #connect-with-us a {
 }
 footer .container #connect-with-us a:hover {
   color: #F4CE14;
+}
+
+main #hero .container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+main #hero .container div {
+  height: -moz-fit-content;
+  height: fit-content;
+}
+main #hero .container div p {
+  color: #FFFFFF !important;
+}
+main #hero .container .image-container {
+  position: relative;
+  width: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main #hero .container .image-container img {
+  aspect-ratio: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+  min-width: 200px;
+  max-width: 400px;
+  max-height: 400px;
+}
+@media (max-width: 767px) {
+  main #hero .container {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, auto);
+    gap: 2rem;
+  }
+}
+main #specials #specials-header {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
+main #specials #specials-header h2 {
+  margin: 0;
+}
+main #specials #special-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+}
+main #specials #special-cards .card {
+  transition: transform 0.3s ease-in-out;
+}
+main #specials #special-cards .card img {
+  min-height: 150px;
+  height: 300px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-end-start-radius: 0;
+  border-end-end-radius: 0;
+}
+main #specials #special-cards .card .card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+main #specials #special-cards .card .card-body .title-price {
+  display: flex;
+  justify-content: space-between;
+}
+main #specials #special-cards .card .card-body .title-price .price {
+  color: #EE9972 !important;
+}
+main #specials #special-cards .card:hover {
+  transform: scale(1.025);
+}
+main #testimonials .container .section-header h2, main #testimonials .container .section-header h2 h2 {
+  text-align: center;
+  color: #FFFFFF !important;
+}
+main #testimonials .container #testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+main #testimonials .container #testimonials-grid .card-img {
+  padding: 1rem 3rem;
+  border-radius: 50%;
+}
+main #testimonials .container #testimonials-grid .card-body .card-title, main #testimonials .container #testimonials-grid .card-body header .navbar #basic-navbar-nav .navbar-nav a, header .navbar #basic-navbar-nav .navbar-nav main #testimonials .container #testimonials-grid .card-body a, main #testimonials footer .container #testimonials-grid .card-body h3, footer main #testimonials .container #testimonials-grid .card-body h3 {
+  text-align: center;
+}
+main #testimonials .container #testimonials-grid .card-body .rating .star {
+  color: #F4CE14;
+}
+main #about .container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+main #about .container #about-text h3 {
+  color: #495E57 !important;
+}
+main #about .container #about-images {
+  position: relative;
+  width: 100%;
+  height: -moz-min-content;
+  height: min-content;
+  max-width: 500px;
+  aspect-ratio: 1;
+  margin: 0 auto;
+}
+main #about .container #about-images img {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+main #about .container #about-images img:first-child {
+  z-index: 1;
+  top: 0;
+  left: 0;
+  transform: translate(0, 0);
+}
+main #about .container #about-images img:last-child {
+  z-index: 2;
+  top: 10%;
+  left: 20%;
+  transform: translate(0, 0);
+}
+@media (max-width: 767px) {
+  main #about .container {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, auto);
+    gap: 2rem;
+  }
+  main #about .container #about-images {
+    max-width: 100%;
+    position: relative;
+  }
+  main #about .container #about-images img {
+    width: 100%;
+    position: static;
+    margin-bottom: 1rem;
+  }
 }

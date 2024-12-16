@@ -1,0 +1,185 @@
+main {
+  #hero {
+    .container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      height: fit-content;
+
+      div {
+        height: fit-content;
+        p {
+          color: $white !important;
+        }
+      }
+
+      .image-container {
+        position: relative;
+        width: 100%;
+        height: fit-content;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+          aspect-ratio: 1;
+          display: block;
+          width: 100%;
+          height: auto;
+          object-fit: cover;
+          min-width: 200px;
+          max-width: 400px;
+          max-height: 400px;
+        }
+      }
+
+      @media (max-width: 767px) {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(2, auto);
+        gap: 2rem;
+      }
+    }
+  }
+  #specials {
+    #specials-header {
+      display: flex;
+      justify-content: space-between;
+      align-content: center;
+
+      h2 {
+        margin: 0;
+      }
+    }
+
+    #special-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1rem;
+
+      .card {
+        transition: transform 0.3s ease-in-out;
+        img {
+          min-height: 150px;
+          height: 300px;
+          object-fit: cover;
+          border-end-start-radius: 0;
+          border-end-end-radius: 0;
+        }
+        .card-body {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          .title-price {
+            display: flex;
+            justify-content: space-between;
+            .title-card-specials {
+              @extend .lead-text;
+            }
+            .price {
+              @extend .lead-text;
+              color: $peach !important;
+            }
+          }
+        }
+        &:hover {
+          transform: scale(1.025);
+        }
+      }
+    }
+  }
+  // HACER RATED STAR Y NON RATED STAR
+  #testimonials {
+    .container {
+      .section-header {
+        h2 {
+          text-align: center;
+          @extend .section-header;
+          color: $white !important;
+        }
+      }
+      #testimonials-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+
+        .card-img {
+          padding: 1rem 3rem;
+          border-radius: 50%;
+        }
+
+        .card-body {
+          .card-title {
+            @extend .lead-text;
+            text-align: center;
+          }
+          .rating {
+            .star {
+              color: $yellow;
+            }
+          }
+        }
+      }
+    }
+  }
+  #about {
+    .container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+
+      #about-text {
+        h3 {
+          color: $green !important;
+        }
+      }
+
+      #about-images {
+        position: relative;
+        width: 100%;
+        height: min-content;
+        max-width: 500px;
+        aspect-ratio: 1;
+        margin: 0 auto;
+
+        img {
+          position: absolute;
+          width: 100%;
+          height: auto;
+          object-fit: cover;
+        }
+
+        img:first-child {
+          z-index: 1;
+          top: 0;
+          left: 0;
+          transform: translate(0, 0);
+        }
+
+        img:last-child {
+          z-index: 2;
+          top: 10%;
+          left: 20%;
+          transform: translate(0, 0);
+        }
+      }
+
+      @media (max-width: 767px) {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(2, auto);
+        gap: 2rem;
+
+        #about-images {
+          max-width: 100%;
+          position: relative;
+
+          img {
+            width: 100%;
+            position: static; // Elimina la posición absoluta en pantallas pequeñas
+            margin-bottom: 1rem;
+          }
+        }
+      }
+    }
+  }
+}
