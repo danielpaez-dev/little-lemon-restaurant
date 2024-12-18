@@ -34,9 +34,9 @@ function Testimonials() {
         </div>
         <div id="testimonials-grid">
           {testimonials.map((testimonial, index) => {
-            const fullStars = Math.floor(testimonial.stars); // Número de estrellas llenas
-            const hasHalfStar = testimonial.stars % 1 !== 0; // ¿Tiene estrella media?
-            const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0); // Estrellas vacías
+            const fullStars = Math.floor(testimonial.stars);
+            const hasHalfStar = testimonial.stars % 1 !== 0;
+            const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
 
             return (
               <Card key={index} className="testimonial-card">
@@ -47,7 +47,7 @@ function Testimonials() {
                 />
                 <Card.Body>
                   <Card.Title>{testimonial.name}</Card.Title>
-                  <div className="rating">
+                  <div className="rating" aria-label={`Rating: ${testimonial.stars} out of 5 stars`}>
                     {/* Estrellas llenas */}
                     {Array.from({ length: fullStars }, (_, i) => (
                       <FontAwesomeIcon
@@ -71,7 +71,7 @@ function Testimonials() {
                       />
                     ))}
                   </div>
-                  <Card.Text>{`"${testimonial.description}"`}</Card.Text>
+                  <Card.Text aria-label={`Testimonial from ${testimonial.name}`}>{`"${testimonial.description}"`}</Card.Text>
                 </Card.Body>
               </Card>
             );

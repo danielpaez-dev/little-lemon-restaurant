@@ -81,6 +81,9 @@ main {
               color: $peach !important;
             }
           }
+          a{
+            @extend .paragraph-text;
+          }
         }
         &:hover {
           transform: scale(1.025);

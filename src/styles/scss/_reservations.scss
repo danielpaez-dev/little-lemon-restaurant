@@ -1,0 +1,26 @@
+#reservations {
+  background-color: $white !important;
+  .container {
+    h2 {
+      @extend .section-title;
+      text-align: center;
+    }
+    form {
+      div {
+        margin-bottom: 1rem;
+        .form-label {
+          @extend .section-categorie;
+        }
+        #ocasion {
+          text-align: center;
+        }
+      }
+    }
+    #confirmation-screen {
+      span {
+        text-transform: capitalize;
+        @extend .lead-text;
+      }
+    }
+  }
+}

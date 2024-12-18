@@ -35,7 +35,6 @@ function HeaderNav() {
               key={link.path}
               as={Link}
               to={link.path}
-              title={`Go to ${link.path}`}
             >
               {link.label}
             </Nav.Link>

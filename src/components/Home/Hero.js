@@ -5,12 +5,12 @@ import RestaurantFood from "../../assets/images/restaurantfood.jpg";
 
 function Hero() {
   return (
-    <article className="background-container" id="hero">
+    <article className="background-container" id="hero" aria-labelledby="hero-title" aria-describedby="hero-description">
       <div className="container">
         <div>
-          <h1>Little Lemon</h1>
+          <h1 id="hero-title">Little Lemon</h1>
           <h2 className="subtitle-text">Chicago</h2>
-          <p>
+          <p id="hero-description">
             We are a family owned Mediterranean restaurant, focused on
             traditional recipes served with a modern twist.
           </p>
@@ -18,6 +18,7 @@ function Hero() {
             className="custom-button"
             title="Reserve a table"
             href="/reservations"
+            aria-label="Reserve a table at Little Lemon Restaurant"
           >
             Reserve a table
           </Button>
@@ -26,6 +27,7 @@ function Hero() {
           <Image
             src={RestaurantFood}
             alt="Bruschettas"
+            aria-label="Image of bruschettas"
           />
         </div>
       </div>

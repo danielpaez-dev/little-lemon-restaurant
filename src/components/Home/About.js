@@ -5,14 +5,14 @@ import MarioAdrianB from "../../assets/images/Mario and Adrian B.jpg";
 
 function About() {
   return (
-    <article className="background-container" id="about">
+    <article className="background-container" id="about" aria-labelledby="about-title">
       <div className="container">
         <div id="about-text">
           <div className="section-header">
-            <h2 className="display-text">Little Lemon</h2>
+            <h2 className="display-text" id="about-title">Little Lemon</h2>
             <h3 className="subtitle-text">Chicago</h3>
           </div>
-          <p>
+          <p id="about-description" aria-labelledby="about-title">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -28,7 +28,7 @@ function About() {
             ratione voluptatem sequi nesciunt.
           </p>
         </div>
-        <div id="about-images">
+        <div id="about-images" aria-label="Photos of Mario and Adrian at the kitchen">
           <Image src={MarioAdrianA} alt="Mario and Adrian at the kitchen" />
           <Image src={MarioAdrianB} alt="Mario and Adrian at the kitchen" />
         </div>

@@ -19,21 +19,21 @@ ExtraBold: 800
   color: #FFFFFF;
 }
 
-.lead-text, main #testimonials .container #testimonials-grid .card-body .card-title, main #testimonials .container #testimonials-grid .card-body header .navbar #basic-navbar-nav .navbar-nav a, header .navbar #basic-navbar-nav .navbar-nav main #testimonials .container #testimonials-grid .card-body a, main #testimonials footer .container #testimonials-grid .card-body h3, footer main #testimonials .container #testimonials-grid .card-body h3, main #specials #special-cards .card .card-body .title-price .price, main #specials #special-cards .card .card-body .title-price .title-card-specials, #root .custom-button {
+.lead-text, #reservations .container #confirmation-screen span, main #testimonials .container #testimonials-grid .card-body .card-title, main #testimonials .container #testimonials-grid .card-body header .navbar #basic-navbar-nav .navbar-nav a, header .navbar #basic-navbar-nav .navbar-nav main #testimonials .container #testimonials-grid .card-body a, main #testimonials footer .container #testimonials-grid .card-body h3, footer main #testimonials .container #testimonials-grid .card-body h3, main #specials #special-cards .card .card-body .title-price .price, main #specials #special-cards .card .card-body .title-price .title-card-specials, #root .custom-button {
   font-family: "Karla", sans-serif;
   font-weight: 600;
   font-size: 1.125rem;
   color: #495E57;
 }
 
-.section-title {
+.section-title, #reservations .container h2 {
   font-family: "Markazi Text", serif;
   font-weight: 500;
   font-size: 2.5rem;
   color: #495E57;
 }
 
-.section-categorie {
+.section-categorie, #reservations .container form div .form-label {
   font-family: "Karla", sans-serif;
   font-weight: 800;
   font-size: 1rem;
@@ -47,7 +47,7 @@ ExtraBold: 800
   color: #495E57;
 }
 
-.paragraph-text, #root p {
+.paragraph-text, main #specials #special-cards .card .card-body a, #root p {
   font-family: "Karla", sans-serif;
   font-weight: 400;
   font-size: 1rem;
@@ -411,4 +411,20 @@ main #about .container #about-images img:last-child {
     position: static;
     margin-bottom: 1rem;
   }
+}
+
+#reservations {
+  background-color: #FFFFFF !important;
+}
+#reservations .container h2 {
+  text-align: center;
+}
+#reservations .container form div {
+  margin-bottom: 1rem;
+}
+#reservations .container form div #ocasion {
+  text-align: center;
+}
+#reservations .container #confirmation-screen span {
+  text-transform: capitalize;
 }

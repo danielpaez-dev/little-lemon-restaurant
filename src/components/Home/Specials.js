@@ -33,29 +33,57 @@ function Specials() {
   ];
 
   return (
-    <article className="background-container" id="specials">
+    <article
+      className="background-container"
+      id="specials"
+      aria-labelledby="specials-title"
+      aria-describedby="specials-description"
+    >
       <div className="container">
         <div id="specials-header" className="section-header">
           <h2 className="section-title">This Weeks Specials!</h2>
-          <Button className="custom-button" title="Reserve a table" href="/menu">
+          <Button
+            className="custom-button"
+            title="Reserve a table"
+            href="/menu"
+            aria-label="View the online menu"
+          >
             Online Menu
           </Button>
         </div>
         <div id="special-cards">
           {weekSpecials.map((weekSpecial, index) =>
-            <Card key={index}>
-              <Card.Img variant="top" src={weekSpecial.imgSrc} />
+            <Card
+              key={index}
+              aria-labelledby={`special-title-${index}`}
+              aria-describedby={`special-description-${index}`}
+            >
+              <Card.Img
+                variant="top"
+                src={weekSpecial.imgSrc}
+                alt={`${weekSpecial.sectionTitle}`}
+              />
               <Card.Body>
                 <div className="title-price">
-                  <Card.Title className="title-card-specials">{weekSpecial.sectionTitle}</Card.Title>
-                  <Card.Title className="price">{weekSpecial.price}</Card.Title>
+                  <Card.Title
+                    id={`special-title-${index}`}
+                    className="title-card-specials"
+                  >
+                    {weekSpecial.sectionTitle}
+                  </Card.Title>
+                  <Card.Title className="price">
+                    {weekSpecial.price}
+                  </Card.Title>
                 </div>
-                <Card.Text>
+                <Card.Text id={`special-description-${index}`}>
                   {weekSpecial.description}
                 </Card.Text>
-                <p href="#">
+                <a
+                  href="/reservations"
+                  aria-label={`Order a delivery for ${weekSpecial.sectionTitle}`}
+                >
                   Order a delivery <FontAwesomeIcon icon={faTruck} />
-                </p>
+                </a>
               </Card.Body>
             </Card>
           )}

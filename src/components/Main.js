@@ -9,6 +9,7 @@ import NotFound from "../pages/NotFound";
 
 function Main() {
   return (
+    <main>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
@@ -17,6 +18,7 @@ function Main() {
         <Route path="/login" element={<Login />} />
         <Route path="*" element={<NotFound />} /> {/* Ruta 404 */}
       </Routes>
+    </main>
   );
 }
 
