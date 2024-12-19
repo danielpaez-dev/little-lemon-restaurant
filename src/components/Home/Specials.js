@@ -79,7 +79,7 @@ function Specials() {
                   {weekSpecial.description}
                 </Card.Text>
                 <a
-                  href="/reservations"
+                  href="/booking"
                   aria-label={`Order a delivery for ${weekSpecial.sectionTitle}`}
                 >
                   Order a delivery <FontAwesomeIcon icon={faTruck} />

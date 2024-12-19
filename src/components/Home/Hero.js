@@ -17,7 +17,7 @@ function Hero() {
           <Button
             className="custom-button"
             title="Reserve a table"
-            href="/reservations"
+            href="/booking"
             aria-label="Reserve a table at Little Lemon Restaurant"
           >
             Reserve a table

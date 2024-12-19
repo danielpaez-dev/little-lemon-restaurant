@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import { Link } from "react-router-dom";
@@ -15,6 +15,9 @@ const navLinks = [
 ];
 
 function HeaderNav() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const handleClick = () => setIsMenuOpen(false);
+
   return (
     <Navbar collapseOnSelect expand="lg" sticky="top">
       <Navbar.Brand as={Link} to="/">
@@ -27,18 +30,20 @@ function HeaderNav() {
       <Navbar.Toggle
         aria-controls="basic-navbar-nav"
         aria-label="Toggle navigation"
+        onClick={() => setIsMenuOpen(!isMenuOpen)}
       />
-      <Navbar.Collapse id="basic-navbar-nav">
+      <Navbar.Collapse id="basic-navbar-nav" in={isMenuOpen}>
         <Nav>
-          {navLinks.map(link =>
+          {navLinks.map(link => (
             <Nav.Link
               key={link.path}
               as={Link}
               to={link.path}
+              onClick={handleClick}
             >
               {link.label}
             </Nav.Link>
-          )}
+          ))}
         </Nav>
       </Navbar.Collapse>
     </Navbar>

@@ -1,20 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Form, Button } from "react-bootstrap";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
-function Reservations({ onSubmit }) {
-  /*
-  * TODO: API for the time of Coursera
-  */
+function Reservations({ availableTimes, fetchAvailableTimes, onSubmit }) {
   const today = new Date().toISOString().split("T")[0];
-  const time = new Date();
-  time.setHours(time.getHours() + 2);
-  const hours = time.getHours().toString().padStart(2, "0");
-  const minutes = time.getMinutes().toString().padStart(2, "0");
-  const defaultTime = `${hours}:${minutes}`;
-  const minTime = "13:00";
-  const maxTime = "02:00";
 
   const validationSchema = Yup.object({
     name: Yup.string()
@@ -25,21 +15,6 @@ function Reservations({ onSubmit }) {
       .min(today, "Date cannot be in the past.")
       .required("Date is required."),
     time: Yup.string()
-      .test(
-        "valid-time",
-        `Time must be between ${minTime} and ${maxTime}.`,
-        (value) => {
-          if (!value) return false;
-          const [hour, minute] = value.split(":").map(Number);
-          const minHour = 13;
-
-          if (hour > minHour || (hour === minHour && minute >= 0)) {
-            return value >= minTime && value <= "23:59";
-          } else {
-            return value >= "00:00" && value <= maxTime;
-          }
-        }
-      )
       .required("Time is required."),
     guests: Yup.number()
       .min(1, "Guests must be at least 1.")
@@ -49,24 +24,28 @@ function Reservations({ onSubmit }) {
     additionalNotes: Yup.string().nullable(),
   });
 
-  // Formik hook
   const formik = useFormik({
     initialValues: {
       name: "",
       date: today,
-      time: defaultTime,
+      time: "",
       guests: 1,
       occasion: "",
       additionalNotes: "",
     },
     validationSchema,
     onSubmit: (values) => {
-      console.log(values);
       if (onSubmit) {
         onSubmit(values);
       }
     },
   });
+
+  useEffect(() => {
+    if (formik.values.date) {
+      fetchAvailableTimes(formik.values.date);
+    }
+  }, [formik.values.date, fetchAvailableTimes]);
 
   return (
     <>
@@ -84,6 +63,7 @@ function Reservations({ onSubmit }) {
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             isInvalid={formik.touched.name && !!formik.errors.name}
+            autoFocus
           />
           <Form.Control.Feedback type="invalid">
             {formik.errors.name}
@@ -108,14 +88,22 @@ function Reservations({ onSubmit }) {
 
         <Form.Group controlId="formBasicTime">
           <Form.Label>Time</Form.Label>
-          <Form.Control
-            type="time"
+          <Form.Select
             name="time"
             value={formik.values.time}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             isInvalid={formik.touched.time && !!formik.errors.time}
-          />
+          >
+            <option disabled value="">
+              Select a time
+            </option>
+            {availableTimes.map((time, index) => (
+              <option key={index} value={time}>
+                {time}
+              </option>
+            ))}
+          </Form.Select>
           <Form.Control.Feedback type="invalid">
             {formik.errors.time}
           </Form.Control.Feedback>
@@ -139,7 +127,7 @@ function Reservations({ onSubmit }) {
         </Form.Group>
 
         <Form.Group controlId="formBasicOccasion">
-          <Form.Label>Occasion</Form.Label>
+          <Form.Label>Occasion (optional)</Form.Label>
           <Form.Select
             name="occasion"
             value={formik.values.occasion}
@@ -156,7 +144,7 @@ function Reservations({ onSubmit }) {
         </Form.Group>
 
         <Form.Group controlId="formAdditionalNotes">
-          <Form.Label>Special Requests</Form.Label>
+          <Form.Label>Special Requests (optional)</Form.Label>
           <Form.Control
             as="textarea"
             rows={3}
@@ -168,7 +156,7 @@ function Reservations({ onSubmit }) {
           />
         </Form.Group>
 
-        <Button type="submit" className="custom-button">
+        <Button type="submit" className="custom-button" disabled={!(formik.isValid && formik.dirty)}>
           Reserve Table
         </Button>
       </Form>
