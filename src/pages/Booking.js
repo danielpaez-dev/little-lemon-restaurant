@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Reservations from "../components/Reservations/Reservation";
-import ValidationScreen from "../components/Reservations/ValidationScreen";
+import Booking from "../components/Booking/BookingForm";
+import ValidationScreen from "../components/Booking/ValidationScreen";
 
 function ParentComponent() {
   const [isFormValid, setIsFormValid] = useState(false);
@@ -16,7 +16,7 @@ function ParentComponent() {
       <div className="container">
         {isFormValid
           ? <ValidationScreen formData={formData} />
-          : <Reservations onSubmit={handleFormSubmit} />}
+          : <Booking onSubmit={handleFormSubmit} />}
       </div>
     </article>
   );

@@ -4,6 +4,9 @@ import Main from './components/Main';
 import Footer from './components/Footer';
 import './styles/css/style.css';
 
+/*
+* TODO: Unit testing
+*/
 function App() {
   return (
     <>
