@@ -4,6 +4,9 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 
 function Reservations({ onSubmit }) {
+  /*
+  * TODO: API for the time of Coursera
+  */
   const today = new Date().toISOString().split("T")[0];
   const time = new Date();
   time.setHours(time.getHours() + 2);
@@ -76,6 +79,8 @@ function Reservations({ onSubmit }) {
             name="name"
             placeholder="Enter your name"
             value={formik.values.name}
+            minLength={2}
+            maxLength={100}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             isInvalid={formik.touched.name && !!formik.errors.name}
@@ -122,6 +127,8 @@ function Reservations({ onSubmit }) {
             type="number"
             name="guests"
             value={formik.values.guests}
+            min={1}
+            max={10}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             isInvalid={formik.touched.guests && !!formik.errors.guests}
