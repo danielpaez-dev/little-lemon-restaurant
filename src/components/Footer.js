@@ -7,7 +7,7 @@ import ConnectWithUs from "./Footer/ConnectWithUs";
 
 function Footer() {
   return (
-    <footer className="background-container">
+    <footer className="background-container" role="contentinfo">
       <div className="container">
         <Image src={FooterLogo} alt="Logo of Little Lemon Restaurant" />
         <Sitemap />

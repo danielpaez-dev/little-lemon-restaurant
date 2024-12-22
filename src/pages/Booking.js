@@ -3,6 +3,11 @@ import { fetchAPI, submitAPI } from "../utils/BookingAPI";
 import BookingForm from "../components/Booking/BookingForm";
 import ConfirmedBooking from "../components/Booking/ConfirmedBooking";
 
+/*
+* Form validation, form submission unit test
+* LocalStorage write and read unit test
+*/
+
 function Booking() {
   const [availableTimes, setAvailableTimes] = useState([]);
   const [formData, setFormData] = useState(() => {
@@ -10,20 +15,24 @@ function Booking() {
     return savedData ? JSON.parse(savedData) : null;
   });
 
-  const fetchAvailableTimes = useCallback((date) => {
+  const initializeTimes = useCallback(async (date) => {
     const validDate = new Date(date);
     if (!isNaN(validDate)) {
-      setAvailableTimes(fetchAPI(validDate));
+      try {
+        const times = await fetchAPI(validDate);
+        setAvailableTimes(times);
+      } catch (error) {
+        console.error("Error fetching available times:", error);
+      }
     } else {
       console.error("Invalid date:", date);
     }
   }, []);
-
   useEffect(() => {
-    fetchAvailableTimes(new Date());
-  }, [fetchAvailableTimes]);
+    initializeTimes(new Date());
+  }, [initializeTimes]);
 
-  const handleBookingSubmit = (data) => {
+  const handleBookingSubmit = async (data) => {
     const cleanedData = Object.fromEntries(
       Object.entries(data).filter(([_, value]) => value)
     );
@@ -45,7 +54,7 @@ function Booking() {
         ) : (
           <BookingForm
             availableTimes={availableTimes}
-            fetchAvailableTimes={fetchAvailableTimes}
+            initializeTimes={initializeTimes}
             onSubmit={handleBookingSubmit}
           />
         )}

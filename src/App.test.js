@@ -1,20 +1,16 @@
-import { render, screen } from "@testing-library/react";
-import { BrowserRouter } from "react-router-dom"; // Importar BrowserRouter
-import App from "./App";
+import { render, screen } from '@testing-library/react';
+import App from './App';
+import { BrowserRouter } from 'react-router-dom';
 
-test("renders header, main, and footer", () => {
+test('renders Header, Main, and Footer components', () => {
   render(
-    <BrowserRouter>
+    <BrowserRouter> {/* Necesario para las pruebas */}
       <App />
     </BrowserRouter>
   );
 
-  const header = screen.getByRole("banner");
-  expect(header).toBeInTheDocument();
-
-  const main = screen.getByRole("main");
-  expect(main).toBeInTheDocument();
-
-  const footer = screen.getByRole("contentinfo");
-  expect(footer).toBeInTheDocument();
+  // Verificar que los componentes Header, Main y Footer se renderizan
+  expect(screen.getByRole('banner')).toBeInTheDocument();
+  expect(screen.getByRole('main')).toBeInTheDocument();
+  expect(screen.getByRole('contentinfo')).toBeInTheDocument();
 });

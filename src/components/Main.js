@@ -9,10 +9,9 @@ import NotFound from "../pages/NotFound";
 
 function Main() {
   return (
-    <main>
+    <main role="main">
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
         <Route path="/booking" element={<Booking />} />
         <Route path="/order" element={<Order />} />
         <Route path="/login" element={<Login />} />

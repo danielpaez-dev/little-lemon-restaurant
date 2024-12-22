@@ -3,7 +3,7 @@ import { Form, Button } from "react-bootstrap";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
-function Reservations({ availableTimes, fetchAvailableTimes, onSubmit }) {
+function BookingForm({ availableTimes, initializeTimes, onSubmit }) {
   const today = new Date().toISOString().split("T")[0];
 
   const validationSchema = Yup.object({
@@ -14,14 +14,13 @@ function Reservations({ availableTimes, fetchAvailableTimes, onSubmit }) {
     date: Yup.date()
       .min(today, "Date cannot be in the past.")
       .required("Date is required."),
-    time: Yup.string()
-      .required("Time is required."),
+    time: Yup.string().required("Time is required."),
     guests: Yup.number()
       .min(1, "Guests must be at least 1.")
       .max(10, "Guests cannot exceed 10.")
       .required("Number of guests is required."),
     occasion: Yup.string().nullable(),
-    additionalNotes: Yup.string().nullable(),
+    additionalNotes: Yup.string().nullable()
   });
 
   const formik = useFormik({
@@ -31,26 +30,29 @@ function Reservations({ availableTimes, fetchAvailableTimes, onSubmit }) {
       time: "",
       guests: 1,
       occasion: "",
-      additionalNotes: "",
+      additionalNotes: ""
     },
     validationSchema,
-    onSubmit: (values) => {
+    onSubmit: values => {
       if (onSubmit) {
         onSubmit(values);
       }
-    },
+    }
   });
 
-  useEffect(() => {
-    if (formik.values.date) {
-      fetchAvailableTimes(formik.values.date);
-    }
-  }, [formik.values.date, fetchAvailableTimes]);
+  useEffect(
+    () => {
+      if (formik.values.date) {
+        initializeTimes(formik.values.date);
+      }
+    },
+    [formik.values.date, initializeTimes]
+  );
 
   return (
-    <>
+    <React.Fragment>
       <h2>Table Reservation</h2>
-      <Form noValidate onSubmit={formik.handleSubmit}>
+      <Form noValidate onSubmit={formik.handleSubmit} role="form">
         <Form.Group controlId="formBasicName">
           <Form.Label>Name</Form.Label>
           <Form.Control
@@ -95,14 +97,16 @@ function Reservations({ availableTimes, fetchAvailableTimes, onSubmit }) {
             onBlur={formik.handleBlur}
             isInvalid={formik.touched.time && !!formik.errors.time}
           >
-            <option disabled value="">
+            <option value="" disabled>
               Select a time
             </option>
-            {availableTimes.map((time, index) => (
-              <option key={index} value={time}>
-                {time}
-              </option>
-            ))}
+            {availableTimes.length > 0
+              ? availableTimes.map((time, index) =>
+                  <option key={index} value={time}>
+                    {time}
+                  </option>
+                )
+              : <option disabled>Loading available times...</option>}
           </Form.Select>
           <Form.Control.Feedback type="invalid">
             {formik.errors.time}
@@ -156,12 +160,16 @@ function Reservations({ availableTimes, fetchAvailableTimes, onSubmit }) {
           />
         </Form.Group>
 
-        <Button type="submit" className="custom-button" disabled={!(formik.isValid && formik.dirty)}>
+        <Button
+          type="submit"
+          className="custom-button"
+          disabled={!(formik.isValid && formik.dirty)}
+        >
           Reserve Table
         </Button>
       </Form>
-    </>
+    </React.Fragment>
   );
 }
 
-export default Reservations;
+export default BookingForm;

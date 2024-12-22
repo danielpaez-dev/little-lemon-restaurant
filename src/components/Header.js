@@ -3,7 +3,7 @@ import HeaderNav from "./Nav";
 
 function Header() {
   return (
-    <header className="background-container">
+    <header className="background-container" role="banner">
       <div className="container">
         <HeaderNav />
       </div>
