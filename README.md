@@ -1,5 +1,7 @@
 # Meta Front-End Developer Capstone Project
 
+[Español](README-es.md)
+
 ## Little-Lemon Website 🍋
 
 Welcome to the Little Lemon Website repository. This project was created as part of Meta's Front-End Development course on Coursera.
@@ -9,6 +11,8 @@ Welcome to the Little Lemon Website repository. This project was created as part
 ### Project Overview
 
 The Little Lemon Website is a responsive and interactive website designed for a fictional restaurant called "Little Lemon". The website is built with modern web technologies including HTML, CSS, SCSS, JavaScript, React, and is based on designs created in Figma. It features a menu, booking form, and other components that allow users to interact with the restaurant's services.
+
+With this project I test my knowledge by using React, figma wireframes, prototypes and system design, advance use of SCSS, testing, 404 pages, documentation, responsive design, accesibility and API consumption.
 
 ### Features
 
@@ -36,3 +40,7 @@ To run this project locally, follow these steps:
 
    ```bash
    git clone https://github.com/Daniel-Paez-Rojas/little-lemon-restaurant.git
+2. **Run localy the website by**:
+
+   ```bash
+   npm run start

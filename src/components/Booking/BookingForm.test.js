@@ -48,7 +48,6 @@ describe("BookingForm Form", () => {
 
     fireEvent.click(screen.getByRole("button", { name: /reserve table/i }));
 
-    // Only these errors will appear because there are default values for the rest of inputs
     await waitFor(() => {
       expect(screen.getByText(/Name is required./i)).toBeInTheDocument();
     });

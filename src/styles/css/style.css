@@ -97,6 +97,18 @@ ExtraBold: 800
     grid-column: 1/-1;
   }
 }
+#root main:has(> .hero) {
+  width: 98vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+#root main:has(> .hero) h1,
+#root main:has(> .hero) h2 {
+  color: #495E57;
+}
 #root article:has(.container),
 #root footer:has(.container) {
   padding: 3rem 0;

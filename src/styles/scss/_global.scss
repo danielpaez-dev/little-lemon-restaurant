@@ -33,6 +33,23 @@
     }
   }
 
+  main {
+    &:has(> .hero) {
+      // Solo si .hero es hijo directo
+      width: 98vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+
+      h1,
+      h2 {
+        color: $green;
+      }
+    }
+  }
+
   article,
   footer {
     &:has(.container) {
@@ -79,18 +96,18 @@
     text-align: center;
     @extend .lead-text;
 
-    &:hover{
+    &:hover {
       border: 1px solid $yellow !important;
       background-color: $green !important;
       color: $white !important;
     }
   }
 
-  .card{
+  .card {
     border-radius: $border-radius;
   }
 
-  .section-header{
+  .section-header {
     margin-bottom: 2rem;
   }
 }
