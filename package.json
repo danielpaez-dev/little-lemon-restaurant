@@ -2,6 +2,7 @@
   "name": "little-lemon-restaurant",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://danielpaez-dev/little-lemon-restaurant",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.7.1",
     "@fortawesome/free-brands-svg-icons": "^6.7.1",
@@ -25,7 +26,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -49,6 +52,7 @@
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.1.0",
+    "gh-pages": "^6.3.0",
     "jest": "^29.7.0",
     "react-router-dom": "^6.28.0"
   }
